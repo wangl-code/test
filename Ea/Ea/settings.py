@@ -64,6 +64,7 @@ USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'Ea.pipelines.EaPipeline': 300,
+   # 'Ea.pipelines.ZaPipeline': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

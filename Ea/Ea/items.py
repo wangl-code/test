@@ -16,4 +16,5 @@ class EaItem(scrapy.Item):
     sku = scrapy.Field()
     details = scrapy.Field()
     img_urls = scrapy.Field()
+    parse_url = scrapy.Field()
     pass

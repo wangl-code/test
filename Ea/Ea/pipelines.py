@@ -12,12 +12,33 @@ from itemadapter import ItemAdapter
 
 class EaPipeline:
     def open_spider(self,spider):
-        self.file = open('data.json','w',encoding='utf-8')
+        if spider.name == 'Eastbay':
+            self.file = open('Eadata.json','w',encoding='utf-8')
+        if spider.name == 'Zapp':
+            self.file = open('Zadata.json','w',encoding='utf-8')
     def process_item(self, item, spider):
+        # if spider.name == 'Eastbay':
         item = dict(item)
         str_data = json.dumps(item,ensure_ascii=False)+'\n'
         self.file.write(str_data)
         return item
     def close_spider(self,spider):
+        # if spider.name == 'Eastbay':
         self.file.close()
+
+
+# class ZaPipeline:
+#     def open_spider(self,spider):
+#         if spider.name == 'Zapp':
+#             self.file = open('Zadata.json','w',encoding='utf-8')
+#     def process_item(self, item, spider):
+#         if spider.name == 'Zapp':
+#             print("ssss",item)
+#             item = dict(item)
+#             str_data = json.dumps(item,ensure_ascii=False)+'\n'
+#             self.file.write(str_data)
+#             return item
+#     def close_spider(self,spider):
+#         if spider.name == 'Zapp':
+#             self.file.close()
 
