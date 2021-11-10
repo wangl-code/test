@@ -33,8 +33,9 @@ class ZappSpider(scrapy.Spider):
         items['details'] = response.xpath('//*[@id="productRecap"]/div[4]/div/div/div[2]/ul/li//text()').extract()
         if len(items['details']) == 0:
             items['details'] = response.xpath('//*[@id="productRecap"]/div[5]/div/div/div[2]/ul/li//text()').extract()
-            items['img_urls'] = response.xpath('//*[@id="productImages"]/div[2]/div/div/div/div/button/img/@srcset').extract_first()
+            img_urls = response.xpath('//*[@id="productImages"]/div[2]/div/div/div/div/button/img/@srcset').extract_first()
+            items['img_urls'] = str(img_urls).replace('2x','')
         # with open("data.html",'w',encoding='utf-8') as f:
         #     f.write(response.text)
-        # print(item)
+        print(items)
         return items
